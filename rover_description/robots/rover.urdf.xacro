@@ -207,6 +207,11 @@
         <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
     </xacro:sensor_asus_xtion>
 
+    <xacro:sensor_asus_xtion2 prefix="camera" parent="base_link">
+        <origin xyz="0.215 0 1" rpy="0 1.57 0"/>
+        <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
+    </xacro:sensor_asus_xtion2>
+
     <!-- wheels -->
     <xacro:corner_link lon_label="front" lat_label="left" reflect="1"/>
     <xacro:corner_link lon_label="front" lat_label="right" reflect="-1"/>
