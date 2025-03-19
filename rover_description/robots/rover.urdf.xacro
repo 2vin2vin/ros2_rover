@@ -207,8 +207,8 @@
         <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
     </xacro:sensor_asus_xtion>
 
-    <xacro:sensor_asus_xtion2 prefix="camera" parent="base_link">
-        <origin xyz="0.215 0 1" rpy="0 1.57 0"/>
+    <xacro:sensor_asus_xtion2 prefix="camera2" parent="base_link">
+        <origin xyz="0.215 0 5" rpy="0 1.57 0"/>
         <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
     </xacro:sensor_asus_xtion2>
 
