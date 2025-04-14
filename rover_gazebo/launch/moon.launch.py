@@ -56,14 +56,14 @@ def generate_launch_description():
         launch_arguments={
             "world": os.path.join(pkg_path, "worlds", "moon.world"),
             "initial_pose_z": "2.11",
-            "nav2_planner": nav2_planner,
-            "nav2_controller": nav2_controller,
+            # "nav2_planner": nav2_planner,
+            # "nav2_controller": nav2_controller,
         }.items(),
     )
 
     ld = LaunchDescription()
-    ld.add_action(nav2_planner_cmd)
-    ld.add_action(nav2_controller_cmd)
+    # ld.add_action(nav2_planner_cmd)
+    # ld.add_action(nav2_controller_cmd)
     ld.add_action(gazebo_cmd)
 
     return ld

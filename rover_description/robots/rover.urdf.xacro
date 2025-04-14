@@ -30,6 +30,7 @@
             <joint_name>right_rocker_joint</joint_name>
             <joint_name>left_bogie_joint</joint_name>
             <joint_name>right_bogie_joint</joint_name>
+            <joint_name>livox_lidar_joint</joint_name>
 
             <joint_name>diff_brace_joint</joint_name>
             
@@ -171,6 +172,21 @@
         </visual>
     </link>
 
+    <link name="livox_lidar_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/sohithvulipe/ws_livox/src/PB_RMSimulation/src/rm_simulation/pb_rm_simulation/meshes/mid360.stl" scale="0.0008 0.0008 0.0008" />
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Attach the LiDAR link to the base_link -->
+    <joint name="livox_lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="livox_lidar_link"/>
+        <origin xyz="0.3 0 0.5" rpy="1.57 3.14 0" />  <!-- Adjust position and orientation as needed -->
+    </joint>
+
     <gazebo reference="base_link">
         <material>Gazebo/Orange</material>
     </gazebo>
@@ -192,10 +208,10 @@
     <xacro:sensor_hokuyo prefix="laser" parent="base_link" min_angle="-1.0" max_angle="1.0">
         <origin xyz="0.17 0 0.005" rpy="0 0 0"/>
     </xacro:sensor_hokuyo>   
-    <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro"/>
+    <!-- <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro"/>
 <xacro:mid360 parent="base_link" name="livox_lidar" topic="/livox/lidar">
-  <origin xyz="0.3 0 0.5" rpy="0 3.14 0" />
-</xacro:mid360>
+  <origin xyz="0 0 0" rpy="0 0 0" />
+</xacro:mid360> -->
     
     <xacro:sensor_imu prefix="imu" parent="base_link">
         <!-- <origin xyz="-0.32 0 0.05" rpy="0 0.5 0"/> -->
@@ -207,10 +223,12 @@
         <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
     </xacro:sensor_asus_xtion>
 
-    <xacro:sensor_asus_xtion2 prefix="camera2" parent="base_link">
-        <origin xyz="0.215 0 5" rpy="0 1.57 0"/>
+    <!-- <xacro:sensor_asus_xtion2 prefix="camera2" parent="base_link">
+        <origin xyz="0.215 0 5" rpy="0 1.57 0"/> -->
         <!-- <origin xyz="0.212 0 0.065" rpy="0 0 0"/> -->
-    </xacro:sensor_asus_xtion2>
+    <!-- </xacro:sensor_asus_xtion2> -->
+
+    <!-- <xacro:sensor_light prefix="light1" parent="base_link"/> -->
 
     <!-- wheels -->
     <xacro:corner_link lon_label="front" lat_label="left" reflect="1"/>

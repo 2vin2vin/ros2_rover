@@ -38,7 +38,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "world": os.path.join(pkg_path, "worlds", "mars.world"),
-            "initial_pose_z": "-0.45",
+            "initial_pose_z": "3.45",
         }.items(),
     )
 

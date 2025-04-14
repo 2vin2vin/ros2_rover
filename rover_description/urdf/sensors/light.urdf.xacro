@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+
+<robot name="sensor_light" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="sensor_light" params="prefix parent">
+  <gazebo reference="${parent}">
+    <!-- Define the light source with pose (position and orientation) -->
+    <light name='cylinder/light_source1' type='spot'>
+      <!-- Position (x, y, z) and Orientation (roll, pitch, yaw) -->
+      <pose>1.0 0.0 1.5 0.0 0.0 0.0</pose>
+      <!-- You can adjust the values above for position and orientation -->
+    </light>
+
+    <plugin name='light_control' filename='libFlashLightPlugin.so'>
+      <enable>true</enable>
+      <light>
+        <id>cylinder/light_source1</id>
+        <duration>0.5</duration>
+        <interval>0.5</interval>
+        <color>1 1 1</color>
+      </light>
+    </plugin>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+</xacro:macro>
+</robot>
